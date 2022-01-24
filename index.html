@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>Trek</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <header>
+      <h1>Trek</h1>
+   </header>
+   <nav>
+      <a class="playLink" href="game.html">Play Trek!</a>
+   </nav>
+
+   <article>
+      <section>
+         <p>Trek is a game of strategy. It is a single-player game played against the computer. The game is played on a
+            3 columns x 20 rows rectangular grid.</p>
+         <p>The computer places 3 rows of pieces at the top of the grid. The pieces are either a colored ⚪
+            or a colored ✖️.</p>
+         <img class="centerimage" src="img1.png">
+         <p>The player must select a piece from each row. The selected pieces must not contain both a
+            ⚪ and ✖️ of the same color. Once all selections are made, the computer places the pieces for the next
+            row.</p>
+         <img class="centerimage" src="img2.png">
+         <p>When a new row is placed, it is possible that the player is unable to make a selection because it would
+            conflict with previous selections. For eg: If the player has already selected a red ⚪, blue ✖️, green ✖️
+            and the new row has a red ✖️, blue ⚪ and green ⚪, the player won't be able to make a selection from
+            the new row.</p>
+         <p>If the player makes an invalid selection, an error message
+            <span id="messageBlock">Invalid selection</span> appears for about two seconds to warn the user and
+            disappears. When this happens, the player has a
+            choice to backtrack and change one or more of their previous
+            choices and retry or forfeit the game. The player may directly click on a new piece to change it, provided
+            it is a valid selection.</p>
+         <p>If there are too many conflicts, they can clear all selections by clicking on the
+            <strong>Clear</strong> link at the top of the page. This retains the pieces and clears the selections so
+            that the player can make fresh selections.
+         </p>
+         <img class="centerimage" src="img3.png">
+         <p>If the player is unable to make any valid selection, they forfeit. The
+            player&apos;s objective is to make a valid selection across all rows of the game grid.</p>
+         <p>The game can end with either the player winning or forfeiting due to being unable to make a valid selection
+            in the last row.</p>
+            <p>Finally, they can start a new game by clicking on the <strong>New game</strong> link at the top of the page. Happy trekking!</p>
+         <a class="playLink" href="game.html">Play Trek!</a>
+      </section>
+      <section id="footer">
+         <p>Copyright &copy; 2022. Vedagiri Vijayakumar. All Rights Reserved.</p>
+      </section>
+   </article>
+
+</body>
+
+</html>
