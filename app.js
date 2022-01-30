@@ -120,6 +120,7 @@ var AppViewModel = function () {
     AppViewModel.prototype.showMessage = function(msgText) {
         let msgBlock = document.getElementById('messageBlock');
         msgBlock.innerText = msgText;
+        self.hapticFeedback();
         self.messageTimeout = setTimeout(function() {
             msgBlock.innerText = "";
         }, 1200);
@@ -159,6 +160,7 @@ var AppViewModel = function () {
             self.selectedLiterals[idx] = undefined;
             self.display();
         }
+        self.hapticFeedback();
     }
 
     AppViewModel.prototype.display = function () {
@@ -278,6 +280,15 @@ var AppViewModel = function () {
 
         // show the game status
         self.showStatus(`${self.rows - self.selectedLiterals.filter(x => x != undefined).length}`)
+    }
+
+    AppViewModel.prototype.hapticFeedback = function() {
+        if(navigator) {
+            if("vibrate" in navigator) {
+                navigator.vibrate(200)
+            }
+        }
+
     }
 
     return self;

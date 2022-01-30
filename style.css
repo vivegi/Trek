@@ -54,7 +54,7 @@ p {
  }
  
  a.playLink {
-    font-size: 1.2rem;
+    font-size: 2.0rem;
     padding: 0.60rem;
  }
  
@@ -84,21 +84,23 @@ p {
 /* game.html styles */
 
 button.piece {
-   width: 7.0rem;
-   height: 7.0rem;
+   width: 10.0rem;
+   height: 10.0rem;
    padding: 0.5rem;
    border-radius: 0.8rem;
    font-size: 3.0rem;
 }
 
 button.piece:hover {
+   border-radius: 5.0rem;
    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 button.piece.selected {
-   outline-style: groove;
+   outline-style: dotted;
    outline-color: white;
    outline-width: 3px;
-   outline-offset: 3px; 
+   outline-offset: 5px; 
+   border-radius: 5.0rem;
 }
 
