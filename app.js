@@ -12,6 +12,8 @@ var AppViewModel = function () {
     self.selectedLiterals = [];
     self.messageTimeout = undefined;
 
+    self.buzzerAudio = new Audio('mixkit-wrong-electricity-buzz-955.wav');
+
     // see: https://graphicdesign.stackexchange.com/questions/3682/where-can-i-find-a-large-palette-set-of-contrasting-colors-for-coloring-many-d
     self.colors = [
         "#e6194B",
@@ -282,11 +284,24 @@ var AppViewModel = function () {
         self.showStatus(`${self.rows - self.selectedLiterals.filter(x => x != undefined).length}`)
     }
 
+    AppViewModel.prototype.soundBuzzer = function() {
+        self.buzzerAudio.play().then(() => {
+            self.buzzerAudio.currentTime = 0;
+        }, (reason) => {
+            console.log(reason);
+        });
+    } 
+
     AppViewModel.prototype.hapticFeedback = function() {
         if(navigator) {
             if("vibrate" in navigator) {
-                navigator.vibrate(200)
+                navigator.vibrate(200);
             }
+            self.soundBuzzer();
+            return;
+        } else {
+            // fallback
+            self.soundBuzzer();
         }
 
     }
