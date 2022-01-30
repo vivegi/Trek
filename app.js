@@ -1,3 +1,7 @@
+/* Trek
+ * Copyright© 2002. Vedagiri Vijayakumar. All Rights Reserved.
+ */  
+
 'use strict';
 
 var AppViewModel = function () {
