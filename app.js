@@ -75,6 +75,10 @@ var AppViewModel = function () {
         self.addRow();
         self.addRow();
         self.addRow();
+
+        // preload the audio
+        self.buzzerAudio.autoplay = false;
+        self.buzzerAudio.load();
     }
 
     AppViewModel.prototype.getRandomLiteral = function () {
@@ -166,7 +170,6 @@ var AppViewModel = function () {
             self.selectedLiterals[idx] = undefined;
             self.display();
         }
-        self.hapticFeedback();
     }
 
     AppViewModel.prototype.display = function () {
