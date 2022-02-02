@@ -1,6 +1,9 @@
 {
     "name": "Trek",
     "short_name": "Trek",
+    "lang": "us-en",
+    "description": "Trek is a game of strategy. It is a single-player game played against the computer.",
+    "categories": ["games", "single-player", "free"],
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +16,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "start_url": "https://vivegi.github.io/Trek",
+    "theme_color": "#1e90ff",
+    "background_color": "#1e90ff",
     "display": "standalone"
 }
