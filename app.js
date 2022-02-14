@@ -127,10 +127,11 @@ var AppViewModel = function () {
         return self.colors[variable];
     }
 
-    AppViewModel.prototype.showMessage = function(msgText) {
+    AppViewModel.prototype.showMessage = function(msgText, hapticFeedback = true) {
         let msgBlock = document.getElementById('messageBlock');
         msgBlock.innerText = msgText;
-        self.hapticFeedback();
+        if(hapticFeedback)
+            self.hapticFeedback();
         self.messageTimeout = setTimeout(function() {
             msgBlock.innerText = "";
         }, 1200);
@@ -318,6 +319,13 @@ var AppViewModel = function () {
 
 var model = new AppViewModel();
 
+function srcToFile(src, fileName, mimeType){
+    return (fetch(src)
+        .then(function(res){return res.arrayBuffer();})
+        .then(function(buf){return new File([buf], fileName, {type:mimeType});})
+    );
+};
+
 document.addEventListener("DOMContentLoaded", function (event) {
     model.initialize();
 
@@ -326,7 +334,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // add the event handler for clear selections
     document.getElementById('linkClearSelections').addEventListener('click', function() {
         model.clearSelections();
-    })
+    });
 
+    // add the event handler for web share
+    document.getElementById('linkShare').addEventListener('click', async function() {
+        const shareData = {
+            title: 'Trek',
+            text: 'Trek: A single-player strategy game',
+            url: 'https://vivegi.github.io/Trek'
+        };
+
+        if(navigator.canShare(shareData)) {
+            try {
+                await navigator.share(shareData);
+                model.showMessage('Shared successfully', false);
+            } catch(err) {
+                model.showMessage('Error: ' + err)
+            }
+        }
+    });
+    
 });
 
